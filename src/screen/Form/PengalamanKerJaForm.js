@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-const PengalamanKerjaForm = () => {
+const PengalamanKerjaForm = ({changePage,sendData}) => {
     const [riwayatPekerjaan, setRiwayatPekerjaan] = useState([
         {
             tahun: "",
@@ -43,7 +43,8 @@ const PengalamanKerjaForm = () => {
         }
         setRiwayatPekerjaan(temp)
         if (hasError == false) {
-            alert("next")
+            changePage(4)
+            sendData(temp)
         } else {
             alert("error")
         }

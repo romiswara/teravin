@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-const RiwayatPendidikanForm = ({ changePage }) => {
+const RiwayatPendidikanForm = ({ changePage,sendData }) => {
 
     const [error, setError] = useState([])
     const [riwayatPendidikan, setRiwayatPendidikan] = useState([
@@ -45,7 +45,9 @@ const RiwayatPendidikanForm = ({ changePage }) => {
         }
         setRiwayatPendidikan(temp)
         if(hasError==false){
-            alert("next")
+           
+            changePage(3)
+            sendData(temp)
         } else {
             alert("error")
         }

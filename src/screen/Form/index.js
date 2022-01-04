@@ -5,9 +5,61 @@ import PengalamanKerjaForm from './PengalamanKerJaForm';
 import PersonalForm from './PersonalForm';
 import RiwayatPendidikanForm from './RiwayaPendidikanForm';
 const Form = () => {
+
+    const [data, setData] = useState({
+        personal: {},
+        pendidikan: {},
+        pengalaman: {},
+        keahlian: {}
+    })
     const [activePage, setActivePage] = useState(1)
     const changePage = (value) => {
         setActivePage(value)
+    }
+
+    const saveDataPersonal = (value) => {
+       
+        setData(prev => {
+            return {
+                ...prev,
+                personal: value
+            }
+        })
+        console.log("personal", data)
+    }
+    const saveDataRiwayatPendidikan = (value) => {
+        setData(prev => {
+            return {
+                ...prev,
+                pendidikan: value
+            }
+        })
+    }
+    const saveDataRiwayatPengalaman = (value) => {
+        setData(prev => {
+            return {
+                ...prev,
+                pengalaman: value
+            }
+        })
+    }
+
+    const submit = (value) => {
+      
+        var temp = {...data}
+        temp.keahlian = value
+        //submit
+        if(localStorage.getItem("data")){
+            var listdata = JSON.parse(localStorage.getItem("data"))
+            console.log("listdata",listdata)
+            listdata.push(temp)
+            localStorage.setItem("data",listdata)
+        } else {
+            var listdata = []
+            listdata.push(temp)
+            listdata = JSON.stringify(listdata)
+            localStorage.setItem("data",listdata)
+        }
     }
     return (
         <>
@@ -33,10 +85,10 @@ const Form = () => {
                     </div>
                 </div>
             </div>
-            {/* {activePage == 1 &&  <PersonalForm changePage={changePage}></PersonalForm>} */}
-            {/* {activePage == 2 &&  <RiwayatPendidikanForm changePage={changePage}></RiwayatPendidikanForm>} */}
-            {/* {activePage == 3 &&  <PengalamanKerjaForm changePage={changePage}></PengalamanKerjaForm>} */}
-            {activePage == 1 &&  <KeahlianForm changePage={changePage}></KeahlianForm>}
+            {activePage == 1 && <PersonalForm changePage={changePage} sendData={saveDataPersonal}></PersonalForm>}
+            {activePage == 2 && <RiwayatPendidikanForm changePage={changePage} sendData={saveDataRiwayatPendidikan}></RiwayatPendidikanForm>}
+            {activePage == 3 && <PengalamanKerjaForm changePage={changePage} sendData={saveDataRiwayatPengalaman}></PengalamanKerjaForm>}
+            {activePage == 4 && <KeahlianForm submitData={submit}></KeahlianForm>}
         </>
     )
 }

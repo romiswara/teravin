@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-const KeahlianForm = () => {
+const KeahlianForm = ({submitData}) => {
     const [keahlian, setKeahlian] = useState([
         {
             skill: ''
@@ -28,7 +28,7 @@ const KeahlianForm = () => {
     }
 
     const next = () => {
-
+        submitData(keahlian)
     }
     return (
         <>

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-const PersonalForm = ({ changePage }) => {
+const PersonalForm = ({ changePage,sendData }) => {
     const [error, setError] = useState([])
     const [personal, setPersonal] = useState({
         id: "",
@@ -21,6 +21,7 @@ const PersonalForm = ({ changePage }) => {
         console.log("personal", personal)
         if (personal.nama != "" && personal.alamat != "" && personal.usia != "" && personal.jenis_kelamin != "") {
             changePage(2)
+            sendData(personal)
         } else {
             var tempError = []
             if (personal.nama == "") {
