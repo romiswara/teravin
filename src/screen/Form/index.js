@@ -1,24 +1,27 @@
 import './../../App.css';
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import KeahlianForm from './KeahlianForm';
 import PengalamanKerjaForm from './PengalamanKerJaForm';
 import PersonalForm from './PersonalForm';
 import RiwayatPendidikanForm from './RiwayaPendidikanForm';
+import uniqid from 'uniqid';
 const Form = () => {
-
+    const navigate = useNavigate();
     const [data, setData] = useState({
         personal: {},
         pendidikan: {},
         pengalaman: {},
         keahlian: {}
     })
+ 
     const [activePage, setActivePage] = useState(1)
     const changePage = (value) => {
         setActivePage(value)
     }
 
     const saveDataPersonal = (value) => {
-       
+        value.id = uniqid()
         setData(prev => {
             return {
                 ...prev,
@@ -44,21 +47,24 @@ const Form = () => {
         })
     }
 
-    const submit = (value) => {
+    const submit = async (value) => {
       
         var temp = {...data}
         temp.keahlian = value
         //submit
-        if(localStorage.getItem("data")){
-            var listdata = JSON.parse(localStorage.getItem("data"))
-            console.log("listdata",listdata)
-            listdata.push(temp)
-            localStorage.setItem("data",listdata)
+        if(await localStorage.getItem("data")){
+            var fetchData = await JSON.parse(localStorage.getItem("data"))
+            console.log("fetchData",fetchData)
+            fetchData.push(temp)
+            await localStorage.setItem("data",fetchData)
+            alert("push")
+            navigate('/')
         } else {
             var listdata = []
             listdata.push(temp)
             listdata = JSON.stringify(listdata)
-            localStorage.setItem("data",listdata)
+            await localStorage.setItem("data",listdata)
+            navigate('/')
         }
     }
     return (
