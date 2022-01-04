@@ -54,10 +54,9 @@ const Form = () => {
         //submit
         if(await localStorage.getItem("data")){
             var fetchData = await JSON.parse(localStorage.getItem("data"))
-            console.log("fetchData",fetchData)
-            fetchData.push(temp)
-            await localStorage.setItem("data",fetchData)
-            alert("push")
+            var datastorage = [...fetchData,temp]
+            datastorage = JSON.stringify(datastorage)
+            await localStorage.setItem("data",datastorage)
             navigate('/')
         } else {
             var listdata = []

@@ -6,9 +6,21 @@ body {
 .btn {
   background-color: #fff;
   color: #333;
-  border:'solid 2px #ccc';
+  border:solid 2px #ccc;
   border-radius: 5px;
   width: 200px !important;
+  padding:10px;
+}
+.btn-add{
+  width: 100px !important;
+  margin-bottom: 10px;
+  border:solid 1px #333;
+}
+.btn-add a{
+  text-decoration: none;
+  color: #333;
+}
+input{
   padding:10px;
 }
 table td, table th {
