@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-const PengalamanKerjaForm = ({changePage,sendData}) => {
+const PengalamanKerjaForm = ({ changePage, sendData }) => {
     const [riwayatPekerjaan, setRiwayatPekerjaan] = useState([
         {
             tahun: "",
@@ -46,12 +46,12 @@ const PengalamanKerjaForm = ({changePage,sendData}) => {
             changePage(4)
             sendData(temp)
         } else {
-          
+
         }
 
     }
     const addRiwayatPekerjaan = () => {
-      
+
         var temp = [...riwayatPekerjaan]
         temp.push({
             tahun: "",
@@ -67,45 +67,44 @@ const PengalamanKerjaForm = ({changePage,sendData}) => {
         <>
             <div className="container">
                 <div className="flex1">
-
-                    {riwayatPekerjaan && riwayatPekerjaan.map((riwayat, index) => {
-                        return <>
-                            <div>
-                                <div className="dpflex mt2">
-                                    <div className="flex1">Tahun</div>
-                                    <div className="flex3">
-                                        <input type="text" className="input" value={riwayat.nama} onChange={($e) => changeValue("tahun", index, $e.target.value)} />
-                                        {riwayatPekerjaan[index].error_tahun == true && <p className="alert">Tahun tidak boleh kosong</p>}
+                    <div className='content-wrapper'>
+                        {riwayatPekerjaan && riwayatPekerjaan.map((riwayat, index) => {
+                            return <>
+                                <div>
+                                    <div className="dpflex mt2">
+                                        <div className="flex1">Tahun</div>
+                                        <div className="flex3">
+                                            <input type="text" className="input" value={riwayat.nama} onChange={($e) => changeValue("tahun", index, $e.target.value)} />
+                                            {riwayatPekerjaan[index].error_tahun == true && <p className="alert">Tahun tidak boleh kosong</p>}
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div>
-                                <div className="dpflex mt2">
-                                    <div className="flex1">Posisi</div>
-                                    <div className="flex3">
-                                        <input type="text" className="input" value={riwayat.nama} onChange={($e) => changeValue("posisi", index, $e.target.value)} />
-                                        {riwayatPekerjaan[index].error_posisi == true && <p className="alert">Posisi tidak boleh kosong</p>}
+                                <div>
+                                    <div className="dpflex mt2">
+                                        <div className="flex1">Posisi</div>
+                                        <div className="flex3">
+                                            <input type="text" className="input" value={riwayat.nama} onChange={($e) => changeValue("posisi", index, $e.target.value)} />
+                                            {riwayatPekerjaan[index].error_posisi == true && <p className="alert">Posisi tidak boleh kosong</p>}
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div>
-                                <div className="dpflex mt2">
-                                    <div className="flex1">Tempat Kerja</div>
-                                    <div className="flex3">
-                                        <input type="text" className="input" value={riwayat.nama} onChange={($e) => changeValue("tempat_kerja", index, $e.target.value)} />
-                                        {riwayatPekerjaan[index].error_tempat_kerja == true && <p className="alert">Tempat kerja tidak boleh kosong</p>}
+                                <div>
+                                    <div className="dpflex mt2">
+                                        <div className="flex1">Tempat Kerja</div>
+                                        <div className="flex3">
+                                            <input type="text" className="input" value={riwayat.nama} onChange={($e) => changeValue("tempat_kerja", index, $e.target.value)} />
+                                            {riwayatPekerjaan[index].error_tempat_kerja == true && <p className="alert">Tempat kerja tidak boleh kosong</p>}
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </>
-                    })}
-
-
+                            </>
+                        })}
+                    </div>
                 </div>
-                <div className="flex1" onClick={addRiwayatPekerjaan}>
-                    <div>
-                        <FontAwesomeIcon icon={faPlus} />
-                        Add Riwayat Pekerjaan
+                <div className="flex1" >
+                    <div className='add-box' onClick={addRiwayatPekerjaan}>
+                        <FontAwesomeIcon icon={faPlus} className='add-box__icon' />
+                        <h3>Add Riwayat Pekerjaan</h3>
                     </div>
 
                 </div>

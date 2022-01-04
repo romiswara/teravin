@@ -13,7 +13,6 @@ const Detail = () => {
         var currentUser = tempData.find(data => {
             return data.personal.id == id
         })
-        console.log("currentUser", currentUser)
         setData(currentUser)
     }, [])
     return (

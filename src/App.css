@@ -3,6 +3,9 @@ body {
   padding:40px 60px;
 
 }
+ul {
+  padding-left:0px;
+}
 .btn {
   background-color: #fff;
   color: #333;
@@ -15,6 +18,11 @@ body {
   width: 100px !important;
   margin-bottom: 10px;
   border:solid 1px #333;
+}
+.btn-skill {
+  width: 100% !important;
+  margin-top: 20px;
+  text-align: center;
 }
 .btn-add a{
   text-decoration: none;
@@ -61,12 +69,24 @@ table td, table th {
 .container{
   display: flex;
   justify-content: space-between;
+  background-color: #ccc;
+  padding:20px;
+}
+.container-skill{
+ 
+  background-color: #ccc;
+  padding:20px;
 }
 .dpflex{
   display: flex;
 }
 .flex1 {
   flex:1;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.w100{
+  width: 100%;
 }
 .flex3 {
   flex:3;
@@ -77,10 +97,7 @@ table td, table th {
 ul {
   list-style: none;
 }
-.container {
-  background-color: #ccc;
-  padding:20px;
-}
+
 
 .mt2 {
   margin-top: 20px;
@@ -110,4 +127,19 @@ ul {
   border-radius: 10px;
   padding:20px 40px;
   margin-top: 20px;
+}
+
+.add-box {
+  background-color: #fff;
+  text-align: center;
+  height: 180px;
+  cursor: pointer;
+}
+.add-box__icon {
+  padding-top: 50px;
+  font-size: 40px;
+}
+.content-wrapper{
+  background-color: #fff;
+  padding:20px;
 }

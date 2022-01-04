@@ -23,43 +23,42 @@ const KeahlianForm = ({ submitData }) => {
     }
 
     const next = () => {
-        var hasError =false
+        var hasError = false
         var errorList = [...error]
         for (let a = 0; a < keahlian.length; a++) {
-            if(keahlian[a].skill ==""){
-                hasError=true
-                errorList[a]=true
+            if (keahlian[a].skill == "") {
+                hasError = true
+                errorList[a] = true
             } else {
-                errorList[a]=false
+                errorList[a] = false
             }
         }
         setError(errorList)
-        if(!hasError){
+        if (!hasError) {
             submitData(keahlian)
-        } 
+        }
     }
     return (
         <>
-            <div className="container colom">
-                <div className="flex1">
+            <div className="container-skill">
+                <div className="w100">
                     {keahlian && keahlian.map((ahli, index) => {
                         return <div>
-                            <div className="dpflex mt2">
-                                <div className="flex3">
-                                    <input type="text" className="input" value={ahli.skill} onChange={($e) => changeValue(index, $e.target.value)} />
-                                    {error[index]==true && <p className="alert">Skill tidak boleh kosong</p>}
-                                    </div>
+                            <div className="dpflex mt2 ">
+                                <input type="text" className="w100" value={ahli.skill} onChange={($e) => changeValue(index, $e.target.value)} />
+                               
                             </div>
+                            {error[index] == true && <p className="alert">Skill tidak boleh kosong</p>}
                         </div>
                     })}
 
                 </div>
-                <div className="flex1">
-                    <div onClick={addSkill}>
-                        <FontAwesomeIcon icon={faPlus} />
-                        Add Another Skill
+              
+                    <div onClick={addSkill} className='btn btn-skill'>
+                        <FontAwesomeIcon icon={faPlus} /> 
+                         Add Another Skill
                     </div>
-                </div>
+              
 
             </div>
             <button style={{ float: 'right' }} className="mt2 btn" onClick={() => next()}>Submit</button>
