@@ -6,6 +6,7 @@ import PengalamanKerjaForm from './PengalamanKerJaForm';
 import PersonalForm from './PersonalForm';
 import RiwayatPendidikanForm from './RiwayaPendidikanForm';
 import uniqid from 'uniqid';
+import { saveData } from '../../services/dataServices';
 const Form = () => {
     const navigate = useNavigate();
     const [data, setData] = useState({
@@ -55,14 +56,12 @@ const Form = () => {
         if(await localStorage.getItem("data")){
             var fetchData = await JSON.parse(localStorage.getItem("data"))
             var datastorage = [...fetchData,temp]
-            datastorage = JSON.stringify(datastorage)
-            await localStorage.setItem("data",datastorage)
+            await saveData(datastorage)
             navigate('/')
         } else {
             var listdata = []
             listdata.push(temp)
-            listdata = JSON.stringify(listdata)
-            await localStorage.setItem("data",listdata)
+            await saveData(listdata)
             navigate('/')
         }
     }
