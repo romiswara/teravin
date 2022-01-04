@@ -46,7 +46,7 @@ const PengalamanKerjaForm = ({changePage,sendData}) => {
             changePage(4)
             sendData(temp)
         } else {
-            alert("error")
+          
         }
 
     }
@@ -111,7 +111,7 @@ const PengalamanKerjaForm = ({changePage,sendData}) => {
                 </div>
 
             </div>
-            <button style={{ float: 'right' }} className="mt2" onClick={() => next()}>Next</button>
+            <button style={{ float: 'right' }} className="mt2 btn" onClick={() => next()}>Next</button>
         </>
     )
 }

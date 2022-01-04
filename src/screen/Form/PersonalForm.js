@@ -88,7 +88,7 @@ const PersonalForm = ({ changePage,sendData }) => {
                 </div>
 
             </div>
-            <button style={{ float: 'right' }} className="mt1" onClick={() => next()}>Next</button>
+            <button style={{ float: 'right' }} className="mt1 btn" onClick={() => next()}>Next</button>
         </>
     )
 }

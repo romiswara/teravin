@@ -3,6 +3,22 @@ body {
   padding:40px 60px;
 
 }
+.btn {
+  background-color: #fff;
+  color: #333;
+  border:'solid 2px #ccc';
+  border-radius: 5px;
+  width: 200px !important;
+  padding:10px;
+}
+table td, table th {
+  padding:10px;
+}
+.thead {
+  width: 100%;
+  text-align:left;
+  background: #ccc;
+}
 .process{
   position: relative;
   width: 100%;

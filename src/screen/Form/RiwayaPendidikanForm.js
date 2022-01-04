@@ -45,11 +45,10 @@ const RiwayatPendidikanForm = ({ changePage,sendData }) => {
         }
         setRiwayatPendidikan(temp)
         if(hasError==false){
-           
             changePage(3)
             sendData(temp)
         } else {
-            alert("error")
+           
         }
         
     }
@@ -116,7 +115,7 @@ const RiwayatPendidikanForm = ({ changePage,sendData }) => {
                 </div>
 
             </div>
-            <button style={{ float: 'right' }} className="mt2" onClick={() => next()}>Next</button>
+            <button style={{ float: 'right' }} className="mt2 btn" onClick={() => next()}>Next</button>
         </>
     )
 }

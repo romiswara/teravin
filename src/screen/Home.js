@@ -1,23 +1,25 @@
 import db from './../database/data'
-import { useState,useEffect } from 'react'
-import { faEye,faPlus} from '@fortawesome/free-solid-svg-icons'
+import { useState, useEffect } from 'react'
+import { faEye, faPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link } from 'react-router-dom'
 import { getData } from '../services/dataServices';
-const Home = () => {    
+const Home = () => {
     const [data, setData] = useState()
-    useEffect( async() => {
+    useEffect(async () => {
         console.log("dsfd")
         var dataFromStorage = await getData()
-        console.log("dataFromStorage",dataFromStorage)
+        console.log("dataFromStorage", dataFromStorage)
         setData(dataFromStorage)
-    },[])
+    }, [])
     return (
         <>
             <h2>Teravin test React.js</h2>
-            <Link to="/form"><FontAwesomeIcon icon={faPlus} /> Add data</Link>
-            <table style={{ width: '100%',textAlign:'left' }}>
-                <tr>
+            <div className='btn btn-add'>
+                <Link to="/form" ><FontAwesomeIcon icon={faPlus} /> Add data</Link>
+            </div>
+            <table style={{ width: '100%', textAlign: 'left' }}>
+                <tr className='thead'>
                     <th>
                         ID No
                     </th>
