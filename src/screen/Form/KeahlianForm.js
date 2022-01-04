@@ -11,12 +11,6 @@ const KeahlianForm = ({submitData}) => {
         var temp = [...keahlian]
         temp[index].skill = value
         setKeahlian(temp)
-        // setPersonal(prev => {
-        //     return {
-        //         ...prev,
-        //         [key]: value
-        //     }
-        // })
     }
 
     const addSkill = () => {
@@ -51,7 +45,7 @@ const KeahlianForm = ({submitData}) => {
                 </div>
 
             </div>
-            <button style={{ float: 'right' }} className="mt2" onClick={() => next()}>Submit</button>
+            <button style={{ float: 'right' }} className="mt2 btn" onClick={() => next()}>Submit</button>
         </>
     )
 }
